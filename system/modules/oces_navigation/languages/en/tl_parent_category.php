@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Bright Cloud Studio's Page Tag Navigation
+ * Bright Cloud Studio's OCES Navigation
  *
- * Copyright (C) 2022 Bright Cloud Studio
+ * Copyright (C) 2023 Bright Cloud Studio
  *
- * @package    bright-cloud-studio/page-tag-navigation
+ * @package    bright-cloud-studio/oces-navigation
  * @link       https://www.brightcloudstudio.com/
  * @license    http://opensource.org/licenses/lgpl-3.0.html
 **/
