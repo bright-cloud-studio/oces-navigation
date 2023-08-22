@@ -68,6 +68,48 @@ class NavigationOptionModule extends \Contao\Module
         // Add our custom js file
         $GLOBALS['TL_BODY'][] = '<script src="system/modules/oces_navigation/assets/js/mod_oces_navigation.js"></script>';
 
+
+        
+        // Sort our Listings based on the 'last_name' field
+        $options = [
+            'order' => 'id ASC'
+        ];
+        // Get all of the navigation options
+        $objNavigationOptions = NavigationOption::findBy('published', '1', $options);
+
+        // Store our options here
+        $arrSelectOptions = array();
+
+        $entry_id = 0;
+
+        foreach ($objNavigationOptions as $option)
+		{
+		    $arrOption = array();
+            // Set values for template
+            
+            $arrOption['id']                   = $entry_id;
+            $arrOption['label']                = $option->label;
+            $arrOption['target_page']          = $option->target_page;
+            $arrOption['target_anchor']        = $option->target_anchor;
+
+            // Generate as "List"
+            $strListTemplate = ($this->entry_customItemTpl != '' ? $this->entry_customItemTpl : 'item_select_option');
+            $objListTemplate = new \FrontendTemplate($strListTemplate);
+            $objListTemplate->setData($arrOption);
+            $arrSelectOptions[$entry_id] = $objListTemplate->parse();
+
+            
+            $entry_id++;
+		}
+
+        $this->Template->select_options = $arrSelectOptions;
+
+
+
+
+
+        
+
 	}
 
 } 
