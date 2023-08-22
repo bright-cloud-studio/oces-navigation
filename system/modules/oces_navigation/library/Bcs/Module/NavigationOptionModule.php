@@ -83,7 +83,7 @@ class NavigationOptionModule extends \Contao\Module
         
         // Make our first blank option
         $arrBlankOptiom = array();
-        $arrBlankOptiom['label'] = 'I am looking for...';
+        $arrBlankOptiom['label'] = 'I am...';
         $arrBlankOptiom['id'] = 0;
         $strListTemplate = ($this->entry_customItemTpl != '' ? $this->entry_customItemTpl : 'item_select_option');
         $objListTemplate = new \FrontendTemplate($strListTemplate);
