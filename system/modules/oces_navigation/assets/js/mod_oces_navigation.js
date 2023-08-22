@@ -5,7 +5,7 @@ $(document).ready(function(){
     $('#select_parent option[id="0"]').attr("selected",true);
     
     // When our select changes
-    $("#select_parent").on( "change", function(){
+    $("select").on( "change", function(){
 
         // Get the selected options target page and target anchor
         var target_page = $('option:selected', this).attr('data-target-page');
