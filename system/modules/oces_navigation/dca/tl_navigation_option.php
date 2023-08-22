@@ -121,6 +121,20 @@ $GLOBALS['TL_DCA']['tl_navigation_option'] = array
 		(
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
+        'alias' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_navigation_option']['alias'],
+			'exclude'                 => true,
+			'inputType'               => 'text',
+			'search'                  => true,
+			'eval'                    => array('unique'=>true, 'rgxp'=>'alias', 'doNotCopy'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
+			'save_callback' => array
+			(
+				array('Bcs\Backend\NavigationOptionBackend', 'generateAlias')
+			),
+			'sql'                     => "varchar(128) COLLATE utf8_bin NOT NULL default ''"
+
+		),
 		'label' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_navigation_option']['label'],
