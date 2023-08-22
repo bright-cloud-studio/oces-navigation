@@ -10,7 +10,7 @@
  * @license    http://opensource.org/licenses/lgpl-3.0.html
 **/
 
-$GLOBALS['TL_LANG']['MOD']['page-tag-navigation'][0] = "Page Tag Navigation";
+$GLOBALS['TL_LANG']['MOD']['oces-navigation'][0] = "Navigation Options";
 
 $GLOBALS['BE_MOD']['oces-navigation']['navigation_option'] = array(
 	'tables' => array('tl_navigation_option'),
