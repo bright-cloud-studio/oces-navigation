@@ -136,8 +136,8 @@ $GLOBALS['TL_DCA']['tl_navigation_option'] = array
 			'inputType'               => 'pageTree',
 			'foreignKey'              => 'tl_page.title',
 			'eval'                    => array('fieldType'=>'radio', 'tl_class'=>'clr'),
-			'relation'                => array('type'=>'hasOne', 'load'=>'lazy')
-            'sql'                     => "int(10) unsigned NOT NULL default '0'",
+			'relation'                => array('type'=>'hasOne', 'load'=>'lazy'),
+            'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
         'target_anchor' => array
 		(
