@@ -1,1 +1,1 @@
-<option id="<?= $this->id ?>" data-url="<?= $this->target_page ?>" data-anchor="<?= $this->target_anchor ?>"><?= $this->label ?></option>
+<option id="<?= $this->id ?>" data-target-page="<?= $this->target_page ?>" data-target-anchor="<?= $this->target_anchor ?>"><?= $this->label ?></option>
