@@ -19,8 +19,7 @@ $GLOBALS['BE_MOD']['oces-navigation']['navigation_option'] = array(
 );
 
 /* Front end modules */
-$GLOBALS['FE_MOD']['oces-navigation']['page_tag_navigation_module'] 		= 'Bcs\Module\PageTagNavigationModule';
-$GLOBALS['FE_MOD']['oces-navigation']['page_tag_navigation_target_module'] 	= 'Bcs\Module\PageTagNavigationTargetModule';
+$GLOBALS['FE_MOD']['oces-navigation']['navigation_option_module'] 		= 'Bcs\Module\NavigationOptionModule';
 
 /* Models */
 $GLOBALS['TL_MODELS']['tl_navigation_option'] = 'Bcs\Model\NavigationOption';
