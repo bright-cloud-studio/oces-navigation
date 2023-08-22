@@ -15,5 +15,4 @@ $GLOBALS['TL_LANG']['FMD']['page_tag_navigation_module'] 			= array('Page Tag Na
 $GLOBALS['TL_LANG']['FMD']['page_tag_navigation_target_module'] 	= array('Page Tag Navigation Target Module', 'Add to any page being targeted');
 
 /* Back end modules */
-$GLOBALS['TL_LANG']['MOD']['parent_category'] 	= array('Parent Categories', 'Define Parent Categories');
-$GLOBALS['TL_LANG']['MOD']['child_category'] 	= array('Child Categories', 'Define Child Categories');
+$GLOBALS['TL_LANG']['MOD']['navigation_option'] 	= array('Navigation Options', 'Enter options for the Navigation module');
