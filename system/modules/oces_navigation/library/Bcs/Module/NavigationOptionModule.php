@@ -80,42 +80,45 @@ class NavigationOptionModule extends \Contao\Module
 
         // Store our options here
         $arrSelectOptions = array();
+        
+        // Make our first blank option
+        $arrBlankOptiom = array();
+        $arrBlankOptiom['label'] = 'I am looking for...';
+        $arrBlankOptiom['id'] = 0;
+        $strListTemplate = ($this->entry_customItemTpl != '' ? $this->entry_customItemTpl : 'item_select_option');
+        $objListTemplate = new \FrontendTemplate($strListTemplate);
+        $objListTemplate->setData($arrBlankOptiom);
+        $arrSelectOptions[0] = $objListTemplate->parse();
+        
 
-        $entry_id = 0;
 
+        // Loop through out options
         foreach ($objNavigationOptions as $option)
 		{
+            // Temporary array to store our details
 		    $arrOption = array();
-            // Set values for template
-            
-            $arrOption['id']                   = $entry_id;
-            $arrOption['label']                = $option->label;
 
-            $objPage = PageModel::findByPk($objRedirect->target_page);
+            // Assign our details
+            $arrOption['id']                   = $option->id;
+            $arrOption['label']                = $option->label;
+            $arrOption['target_anchor']        = $option->target_anchor;
+
+            // Get the Contao page by passing in our pageTree value
+            $objPage = PageModel::findByPk($option->target_page);
             if ($objPage) {
+                // Save our frontend url
                 $arrOption['target_page'] = $objPage->getFrontendUrl();
             }
             
-            
-            $arrOption['target_anchor']        = $option->target_anchor;
-
-            // Generate as "List"
+            // Pass our stored values into our item template
             $strListTemplate = ($this->entry_customItemTpl != '' ? $this->entry_customItemTpl : 'item_select_option');
             $objListTemplate = new \FrontendTemplate($strListTemplate);
             $objListTemplate->setData($arrOption);
-            $arrSelectOptions[$entry_id] = $objListTemplate->parse();
+            $arrSelectOptions[$option->id] = $objListTemplate->parse();
 
-            
-            $entry_id++;
 		}
-
+        // Save our templated option to this module's template
         $this->Template->select_options = $arrSelectOptions;
-
-
-
-
-
-        
 
 	}
 
