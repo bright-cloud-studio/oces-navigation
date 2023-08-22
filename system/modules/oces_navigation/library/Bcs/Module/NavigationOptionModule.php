@@ -14,6 +14,7 @@
 namespace Bcs\Module;
  
 use Bcs\Model\NavigationOption;
+use Contao\PageModel;
  
 class NavigationOptionModule extends \Contao\Module
 {
@@ -89,7 +90,13 @@ class NavigationOptionModule extends \Contao\Module
             
             $arrOption['id']                   = $entry_id;
             $arrOption['label']                = $option->label;
-            $arrOption['target_page']          = $option->target_page;
+
+            $objPage = PageModel::findByPk($objRedirect->target_page);
+            if ($objPage) {
+                $arrOption['target_page'] = $objPage->getFrontendUrl();
+            }
+            
+            
             $arrOption['target_anchor']        = $option->target_anchor;
 
             // Generate as "List"
