@@ -13,35 +13,9 @@
 
 	<div id="dropdown_parent" class="dropdown dropdown_parent" onchange="get_child_dropdown('.ptn_<?= $this->id; ?>');">
 		<select id="select_parent">
-			<?php
-				// open the contao localconfig.php file and get our default child option
-				$childDefault = '';
-				if ($file = fopen("/home/oces/public_html/system/config/localconfig.php", "r")) {
-				    while(!feof($file)) {
-				        $line = fgets($file);
-						
-						if(strpos($line, 'parentDefault') !== false){
-							$stripFront = substr($line, 42);
-							$stripEnd = substr($stripFront, 0, -3);
-							echo '<option id="0">' . $stripEnd . '</option>';
-						}
-						if(strpos($line, 'childDefault') !== false){
-							$stripFront = substr($line, 41);
-							$stripEnd = substr($stripFront, 0, -3);
-							$childDefault =  '<option id="0">' . $stripEnd . '</option>';
-						}
-				    }
-				    fclose($file);
-				} 
-				
-				// get our parent category options
-				$this->import('Database');
-				$result = $this->Database->prepare("SELECT * FROM tl_navigation_option WHERE published=1")->execute();
-				while($result->next())
-				{
-					echo '<option id="'. $result->id.'">' . $result->label . '</option>';
-				}
-			?>
+			<?php if (!empty($this->select_options)): ?>
+				<?= implode('', $this->select_options) ?>
+			<?php endif; ?>
 		</select>
 	</div>
 
