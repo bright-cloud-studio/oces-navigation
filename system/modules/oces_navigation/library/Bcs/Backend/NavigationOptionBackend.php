@@ -69,7 +69,7 @@ class NavigationOptionBackend extends \Backend
 		$this->log('A new version of record "tl_navigation_option.id='.$intId.'" has been created'.$this->getParentEntries('tl_navigation_option', $intId), __METHOD__, TL_GENERAL);
 	}
 	
-	public function exportLocations()
+	public function exportNavigationOptions()
 	{
 		$objLocation = Location::findAll();
 		$strDelimiter = ',';
