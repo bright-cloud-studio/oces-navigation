@@ -18,15 +18,13 @@ ClassLoader::addClasses(array
 (
 	'Bcs\Model\NavigationOption' 					=> 'system/modules/oces_navigation/library/Bcs/Model/NavigationOption.php',
 	'Bcs\Backend\NavigationOptionBackend' 			=> 'system/modules/oces_navigation/library/Bcs/Backend/NavigationOptionBackend.php',
-	'Bcs\Module\PageTagNavigationModule' 			=> 'system/modules/oces_navigation/library/Bcs/Module/PageTagNavigationModule.php',
-	'Bcs\Module\PageTagNavigationTargetModule' 		=> 'system/modules/oces_navigation/library/Bcs/Module/PageTagNavigationTargetModule.php',
+	'Bcs\Module\NavigationOptionModule' 			=> 'system/modules/oces_navigation/library/Bcs/Module/NavigationOptionModule.php'
 ));
 
 /* Register the templates */
 TemplateLoader::addFiles(array
 (
-	'mod_page_tag_navigation' 				=> 'system/modules/oces_navigation/templates/modules',
-	'mod_page_tag_navigation_target' 		=> 'system/modules/oces_navigation/templates/modules',
-	'item_dropdown_parent' 					=> 'system/modules/oces_navigation/templates/items',
-	'item_dropdown_child' 					=> 'system/modules/oces_navigation/templates/items',
+	'mod_oces_navigation' 				=> 'system/modules/oces_navigation/templates/modules',
+	'item_dropdown_parent' 				=> 'system/modules/oces_navigation/templates/items',
+	'item_dropdown_child' 				=> 'system/modules/oces_navigation/templates/items',
 ));
