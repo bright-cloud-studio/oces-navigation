@@ -44,11 +44,5 @@
 			?>
 		</select>
 	</div>
-	
-	<div id="dropdown_child" class="dropdown_child dropdown">
-		<select id="select_child" disabled>
-			<?php echo $childDefault; ?>
-		</select>
-	</div>
-		
+
 </div>
