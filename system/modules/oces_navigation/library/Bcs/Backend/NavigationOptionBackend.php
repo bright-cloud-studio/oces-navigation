@@ -1,22 +1,22 @@
 <?php
 
 /**
- * Locations - Location Plugin for Contao
+ * Bright Cloud Studio's OCES Navigation
  *
- * Copyright (C) 2018 Andrew Stevens
+ * Copyright (C) 2023 Bright Cloud Studio
  *
- * @package    asconsulting/locations
- * @link       http://andrewstevens.consulting
+ * @package    bright-cloud-studio/oces-navigation
+ * @link       https://www.brightcloudstudio.com/
  * @license    http://opensource.org/licenses/lgpl-3.0.html
- */
+**/
 
  
 namespace Bcs\Backend;
 
 use Contao\DataContainer;
-use Bcs\Model\ChildCategory;
+use Bcs\Model\NavigationOption;
 
-class ChildCategoryBackend extends \Backend
+class NavigationOptionBackend extends \Backend
 {
 
 	public function getItemTemplates()
@@ -46,9 +46,9 @@ class ChildCategoryBackend extends \Backend
     public function toggleVisibility($intId, $blnVisible, DataContainer $dc=null)
     {
       // Trigger the save_callback
-      if (is_array($GLOBALS['TL_DCA']['tl_child_category']['fields']['published']['save_callback']))
+      if (is_array($GLOBALS['TL_DCA']['tl_navigation_option']['fields']['published']['save_callback']))
       {
-        foreach ($GLOBALS['TL_DCA']['tl_child_category']['fields']['published']['save_callback'] as $callback)
+        foreach ($GLOBALS['TL_DCA']['tl_navigation_option']['fields']['published']['save_callback'] as $callback)
         {
           if (is_array($callback))
           {
@@ -63,10 +63,10 @@ class ChildCategoryBackend extends \Backend
       }
 
 		// Update the database
-		$this->Database->prepare("UPDATE tl_child_category SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
+		$this->Database->prepare("UPDATE tl_navigation_option SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
 					   ->execute($intId);
 
-		$this->log('A new version of record "tl_child_category.id='.$intId.'" has been created'.$this->getParentEntries('tl_child_category', $intId), __METHOD__, TL_GENERAL);
+		$this->log('A new version of record "tl_navigation_option.id='.$intId.'" has been created'.$this->getParentEntries('tl_navigation_option', $intId), __METHOD__, TL_GENERAL);
 	}
 	
 	public function exportLocations()
