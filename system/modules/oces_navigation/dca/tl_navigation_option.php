@@ -155,7 +155,7 @@ $GLOBALS['TL_DCA']['tl_navigation_option'] = array
 		),
         'target_anchor' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_navigation_option']['label'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_navigation_option']['target_anchor'],
 			'inputType'               => 'text',
 			'default'                 => '',
 			'search'                  => true,
