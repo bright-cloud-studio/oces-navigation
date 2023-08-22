@@ -102,7 +102,7 @@ $GLOBALS['TL_DCA']['tl_navigation_option'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{category_legend},label,alias;{publish_legend},published;'
+        'default'                     => '{navigation_option_legend},label;{navigation_target_legend},target_page,target_anchor;{publish_legend},published;'
     ),
  
     // Fields
