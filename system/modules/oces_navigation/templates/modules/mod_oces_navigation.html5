@@ -36,7 +36,7 @@
 				
 				// get our parent category options
 				$this->import('Database');
-				$result = $this->Database->prepare("SELECT * FROM tl_parent_category WHERE published=1")->execute();
+				$result = $this->Database->prepare("SELECT * FROM tl_navigation_option WHERE published=1")->execute();
 				while($result->next())
 				{
 					echo '<option id="'. $result->id.'">' . $result->label . '</option>';
