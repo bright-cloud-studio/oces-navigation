@@ -10,9 +10,17 @@ $(document).ready(function(){
         // Get the selected options target page and target anchor
         var target_page = $('option:selected', this).attr('data-target-page');
         var target_anchor = $('option:selected', this).attr('data-target-anchor');
+        
+        var buffer = '/';
+        
+        if(target_page !== '')
+            buffer += target_page;
+            
+        if(target_anchor !== '')
+            buffer += "#" + target_anchor;
 
         // Build our link and redirect to it
-        window.location.href = "/" + target_page + "#" + target_anchor;
+        window.location.href = buffer;
     });
     
 });
