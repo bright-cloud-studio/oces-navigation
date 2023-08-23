@@ -36,14 +36,14 @@ $GLOBALS['TL_DCA']['tl_navigation_option'] = array
         'sorting' => array
         (
             'mode'                    => 1,
-            'fields'                  => array('id', 'label'),
+            'fields'                  => array('label'),
             'flag'                    => 1,
-            'panelLayout'             => 'sort,filter;search,limit'
+            'panelLayout'             => 'filter;search,limit'
         ),
         'label' => array
         (
-            'fields'                  => array('tl_page.title', 'label'),
-            'format'                  => '<strong>%s</strong> %s'
+            'fields'                  => array('label'),
+            'format'                  => '%s'
         ),
         'global_operations' => array
         (
