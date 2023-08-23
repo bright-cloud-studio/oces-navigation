@@ -42,7 +42,7 @@ $GLOBALS['TL_DCA']['tl_navigation_option'] = array
         ),
         'label' => array
         (
-            'fields'                  => array('target_page', 'label'),
+            'fields'                  => array('tl_page.title', 'label'),
             'format'                  => '<strong>%s</strong> %s'
         ),
         'global_operations' => array
