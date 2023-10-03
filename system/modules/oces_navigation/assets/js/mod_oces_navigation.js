@@ -6,6 +6,8 @@ $(document).ready(function(){
     
     // When our select changes
     $("select").on( "change", function(){
+        
+        console.log(window.location.href);
 
         // Get the selected options target page and target anchor
         var target_page = $('option:selected', this).attr('data-target-page');
@@ -15,12 +17,19 @@ $(document).ready(function(){
         
         if(target_page !== '')
             buffer += target_page;
-            
+        
+        // True or false if the current address includes the address we are trying to forward to
+        var same_page = window.location.href.includes(buffer);
+        
         if(target_anchor !== '')
             buffer += "#" + target_anchor;
 
         // Build our link and redirect to it
         window.location.href = buffer;
+        
+        // if the target is on the same page, force a reload
+        if(same_page)
+            window.location.reload();
     });
     
 });
