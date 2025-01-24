@@ -24,12 +24,18 @@ $(document).ready(function(){
         if(target_anchor !== '')
             buffer += "#" + target_anchor;
 
-        // Build our link and redirect to it
-        window.location.href = buffer;
+        // OUTDATED - a simple way to redirect the user
+        //window.location.href = buffer;
+        
+        // NEW - fire a window open even and pass with it a datalayer contained the event key 'homepage-navigation'
+        window.open(buffer,'_self');
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({'event':'homepage-navigation'});
         
         // if the target is on the same page, force a reload
         if(same_page)
             window.location.reload();
     });
+    
     
 });
