@@ -1,0 +1,22 @@
+<!–– Wrapper for the whole module on the page ––>
+
+<div class="mod_page_tag_navigation <?= $this->class ?>">
+	
+	<div id="error_messages"></div>
+	
+	<?php if ($this->headline): ?>
+		<!-- Manually added by RB -->
+		<h3>Begin
+		<span class="small">finding the services and info you need.</span>
+		</h3>
+	<?php endif; ?>
+
+	<div id="dropdown_parent" class="dropdown dropdown_parent">
+		<select id="select_parent">
+			<?php if (!empty($this->select_options)): ?>
+				<?= implode('', $this->select_options) ?>
+			<?php endif; ?>
+		</select>
+	</div>
+
+</div>
