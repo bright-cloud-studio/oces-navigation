@@ -6,7 +6,7 @@
 	
 	<?php if ($this->headline): ?>
 		<!-- Manually added by RB -->
-		<h3>Get started
+		<h3>Begin
 		<span class="small">finding the services and info you need.</span>
 		</h3>
 	<?php endif; ?>
