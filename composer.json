@@ -1,36 +1,41 @@
 {
     "name":"bright-cloud-studio/oces-navigation",
     "description":"Customized Navigation module for OCES",
+    "keywords": ["oces", "navigation", "bright", "cloud", "studio"],
+    "type": "contao-bundle",
     "homepage": "http://brightcloudstudio.com/",
-    "keywords":["oces", "navigation", "bright", "cloud", "studio"],
-    "type":"contao-module",
-    "license":"LGPL-3.0-or-later",
+    "license": "LGPL-3.0+",
     "authors":[
         {
-            "name":"Bright Cloud Studio",
-            "homepage":"https://brightcloudstudio.com"
+            "name": "Bright Cloud Studio",
+            "homepage": "https://brightcloudstudio.com",
+            "email": "mark@brightcloudstudio.com",
+            "role": "Developer"
         }
     ],
-    "require":{
-        "php": "^8.0",
-        "contao/core-bundle": "^4.13"
+    "support":{
+        "issues": "https://github.com/bright-cloud-studio/oces-navigation/issues",
+        "source": "https://github.com/bright-cloud-studio/oces-navigation"
     },
-    "require-dev": {
-        "contao/manager-plugin": "^2.0"
+    "require":{
+        "php": "^7.3 || ^8.0",
+        "contao/core-bundle": "^4.9 || ^5.3"
+    },
+    "extra":{
+        "contao-manager-plugin": "Bcs\\OCESNavigationBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
-            "Bcs\\": [
-                "system/modules/oces_navigation/library/Bcs"
-            ]
-        }
-    },
-    "extra": {
-        "contao": {
-            "sources": {
-                "system/modules/oces_navigation": "system/modules/oces_navigation"
-            }
-        }
-    },
-    "minimum-stability": "dev"
+            "Bcs\\OCESNavigationBundle\\": "src"
+        },
+        "classmap": [
+            "src/Resources/contao"
+        ],
+        "exclude-from-classmap": [
+            "src/Resources/contao/config/",
+            "src/Resources/contao/dca/",
+            "src/Resources/contao/languages/",
+            "src/Resources/contao/templates/"
+        ]
+    }
 }
