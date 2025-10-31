@@ -24,10 +24,10 @@ $(document).ready(function(){
         if(target_anchor !== '')
             buffer += "#" + target_anchor;
 
-        // OUTDATED - a simple way to redirect the user
+        // Build our link and redirect to it
         //window.location.href = buffer;
         
-        // NEW - fire a window open even and pass with it a datalayer contained the event key 'homepage-navigation'
+        // Redirect in a way that passes information needed for Google Tag Manager or whatever
         window.open(buffer,'_self');
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({'event':'homepage-navigation'});
