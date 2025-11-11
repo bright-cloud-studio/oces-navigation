@@ -11,7 +11,11 @@
 namespace Bcs\Module;
  
 use Bcs\Model\NavigationOption;
+
+use Contao\BackendTemplate;
+use Contao\FrontendTemplate;
 use Contao\PageModel;
+use Contao\System;
  
 class NavigationOptionModule extends \Contao\Module
 {
@@ -42,9 +46,10 @@ class NavigationOptionModule extends \Contao\Module
      */
     public function generate()
     {
-        if (TL_MODE == 'BE')
-        {
-            $objTemplate = new \BackendTemplate('be_wildcard');
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+		if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
+		{
+            $objTemplate = new BackendTemplate('be_wildcard');
  
             $objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['FMD']['navigation_option'][0]) . ' ###';
             $objTemplate->title = $this->headline;
@@ -83,7 +88,7 @@ class NavigationOptionModule extends \Contao\Module
         $arrBlankOptiom['label'] = 'I am...';
         $arrBlankOptiom['id'] = 0;
         $strListTemplate = ($this->entry_customItemTpl != '' ? $this->entry_customItemTpl : 'item_select_option');
-        $objListTemplate = new \FrontendTemplate($strListTemplate);
+        $objListTemplate = new FrontendTemplate($strListTemplate);
         $objListTemplate->setData($arrBlankOptiom);
         $arrSelectOptions[0] = $objListTemplate->parse();
         
@@ -109,7 +114,7 @@ class NavigationOptionModule extends \Contao\Module
             
             // Pass our stored values into our item template
             $strListTemplate = ($this->entry_customItemTpl != '' ? $this->entry_customItemTpl : 'item_select_option');
-            $objListTemplate = new \FrontendTemplate($strListTemplate);
+            $objListTemplate = new FrontendTemplate($strListTemplate);
             $objListTemplate->setData($arrOption);
             $arrSelectOptions[$option->id] = $objListTemplate->parse();
 
