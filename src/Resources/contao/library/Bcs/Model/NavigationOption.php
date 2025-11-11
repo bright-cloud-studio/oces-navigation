@@ -7,10 +7,11 @@
  * @link       https://www.brightcloudstudio.com/
 **/
 
- 
 namespace Bcs\Model;
 
-class NavigationOption extends \Model
+use Contao\Model;
+
+class NavigationOption extends Model
 {
 	
 	/**
